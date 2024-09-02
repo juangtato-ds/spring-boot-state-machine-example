@@ -65,12 +65,6 @@ public class DocumentRestController {
         }
     }
 
-    @GetMapping("{id}/statemachine")
-    @ResponseStatus(code = HttpStatus.OK)
-    public boolean getStateMachine(@PathVariable() String id) {
-        return manager.hasStateMachine(id);
-    }
-
     private ResponseEntity<DocumentResponse> createDocument(TextMineDocumentType type) {
         TextMineDocument doc = documentUseCase.createDocument(type);
         if (doc == null) {
